@@ -1,0 +1,135 @@
+@host = http://localhost:3000
+
+###
+# @name messages
+GET  {{host}}/api/messages/list/:page
+Content-Type: application/json
+
+example
+GET /api/messages/list/1
+Host: localhost:3000
+Content-Type: application/json
+
+//response
+{
+    "docs": [
+        {
+            "_id": "5c7c48f776fe751700757d2d",
+            "text": "sdfs",
+            "picture": "https://via.placeholder.com/346x335.png",
+            "publicationDate": "2019-03-03T21:36:55.095Z",
+            "author": {
+                "_id": "5c7c48f776fe751700757d2c",
+                "username": "Ivan",
+                "email": "admin@gmail.com",
+                "createdDate": "2019-03-03T21:36:55.019Z",
+                "last_updated": "2019-03-03T21:36:55.034Z",
+                "__v": 0
+            },
+            "last_updated": "2019-03-03T21:36:55.097Z",
+            "__v": 0,
+            "id": "5c7c48f776fe751700757d2d"
+        },
+        {
+            "_id": "5c7c4375baf26a34e84e8c74",
+            "text": "test34",
+            "picture": "/images/1551647605264.jpeg",
+            "publicationDate": "2019-03-03T21:13:25.270Z",
+            "author": {
+                "_id": "5c7c4375baf26a34e84e8c73",
+                "username": "Bob",
+                "email": "iii@ukr.net",
+                "createdDate": "2019-03-03T21:13:25.183Z",
+                "last_updated": "2019-03-03T21:13:25.200Z",
+                "__v": 0
+            },
+            "last_updated": "2019-03-03T21:13:25.275Z",
+            "__v": 0,
+            "id": "5c7c4375baf26a34e84e8c74"
+        },
+        {
+            "_id": "5c7c22cdb4cb0605a89786a0",
+            "text": "",
+            "picture": "https://via.placeholder.com/346x335.png",
+            "publicationDate": "2019-03-03T18:54:05.700Z",
+            "author": {
+                "_id": "5c7c1f269a15a9049c2ebd59",
+                "username": "Alex",
+                "email": "sasha991@ukr.net",
+                "createdDate": "2019-03-03T18:38:30.062Z",
+                "last_updated": "2019-03-03T18:38:30.092Z",
+                "__v": 0
+            },
+            "last_updated": "2019-03-03T18:54:05.702Z",
+            "__v": 0,
+            "id": "5c7c22cdb4cb0605a89786a0"
+        }
+    ],
+    "totalDocs": 7,
+    "limit": 3,
+    "hasPrevPage": false,
+    "hasNextPage": true,
+    "page": 1,
+    "totalPages": 3,
+    "prevPage": null,
+    "nextPage": 2
+}
+
+###
+
+# @name messages/single
+GET  {{host}}/api/messages/single/:messageId
+Content-Type: application/json
+
+example
+GET /api/messages/single/5c7c1f269a15a9049c2ebd5a
+//response
+{
+    "_id": "5c7c1f269a15a9049c2ebd5a",
+    "text": "cacacsca",
+    "picture": "/images/1551638310167.jpeg",
+    "publicationDate": "2019-03-03T18:38:30.180Z",
+    "author": {
+        "_id": "5c7c1f269a15a9049c2ebd59",
+        "username": "Alex",
+        "email": "sasha991@ukr.net",
+        "createdDate": "2019-03-03T18:38:30.062Z",
+        "last_updated": "2019-03-03T18:38:30.092Z",
+        "__v": 0
+    },
+    "last_updated": "2019-03-03T18:38:30.188Z",
+    "__v": 0
+}
+
+###
+
+# @name messages/single
+POST {{host}}/api/messages/single
+Content-Type: application/json
+
+    example
+POST /api/messages/single
+Host: localhost:3000
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+Content-Disposition: form-data; name="email"
+test@gmail.com
+Content-Disposition: form-data; name="username"
+Alex
+Content-Disposition: form-data; name="text"
+Message text
+Content-Disposition: form-data; name="picture"; filename="C:\Users\Admin\Desktop\1200px-Google_2015_logo.svg.png
+
+
+    response
+    {
+    "_id": "5c7c558b85a63d28506af1ac",
+    "text": "Message text",
+    "picture": "/images/1551652235461.jpeg",
+    "publicationDate": "2019-03-03T22:30:35.474Z",
+    "author": "5c7c558b85a63d28506af1ab",
+    "last_updated": "2019-03-03T22:30:35.478Z",
+    "__v": 0
+}
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
