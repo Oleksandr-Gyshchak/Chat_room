@@ -1,6 +1,7 @@
 "# chat with authentication"
 
 npm install
+
 npm start
 
 secured routes: JWT token, passport
