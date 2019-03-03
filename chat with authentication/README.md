@@ -1,4 +1,4 @@
-"# chat without authentication"
+"# chat with authentication"
 
 npm install
 npm start
